@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Comfortaa">
+		<style> 
+			/*css goes here*/
+			 #text {
+   		     	font-family: 'Comfortaa', sans-serif;
+   		     	color: green;
+   		     }
+			
+		</style>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<script>
+		function initialize() {
+				var myCenter = new google.maps.LatLng(48.200599,16.377623);
+				var myCenterHome = new google.maps.LatLng(34.109784,-118.153693);
+				var myCenterVienna = new google.maps.LatLng(48.200479,16.372762);
+				var myCenterBonn = new google.maps.LatLng(50.736828,7.101195);
+				var myCenterSalz = new google.maps.LatLng(47.800011,13.04354);
+				var myCenterBayr = new google.maps.LatLng(49.959862,11.579719);
+				var myCenterSydn = new google.maps.LatLng(-33.856767,151.215284);
+				var myCenterChina = new google.maps.LatLng(39.903337,116.38357);
+				var myCenterRuss = new google.maps.LatLng(55.760134,37.618647);
+				var myCenterAlb = new google.maps.LatLng(51.50104,-0.177399);
+				var myCenterMexi = new google.maps.LatLng(19.435637,-99.14118);
+				var myCenterNYC = new google.maps.LatLng(40.765126,-73.979923);
+				var myCenterBost = new google.maps.LatLng(42.342888,-71.085714);
+				var myCenterWDCH = new google.maps.LatLng(34.055935,-118.249636);
+				var myCenterHoBo = new google.maps.LatLng(34.112226,-118.339129);
+		  		var mapProp = {
+				center:new google.maps.LatLng(45,0),
+				zoom:2,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		 		 };
+		  		var map=
+		   		new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		   		
+		   		var marker = new google.maps.Marker({position:myCenterHome,});
+		   		marker.setMap(map);
+		   		var marker2 = new google.maps.Marker({position:myCenterVienna,});
+		   		marker2.setMap(map);
+		   		var marker3 = new google.maps.Marker({position:myCenterBonn,});
+		   		marker3.setMap(map);
+		   		var marker4 = new google.maps.Marker({position:myCenterSalz,});
+		   		marker4.setMap(map);
+		   		var marker5 = new google.maps.Marker({position:myCenterSydn,});
+		   		marker5.setMap(map);
+		   		var marker6 = new google.maps.Marker({position:myCenterChina,});
+		   		marker6.setMap(map);
+		   		var marker7 = new google.maps.Marker({position:myCenterRuss,});
+		   		marker7.setMap(map);
+		   		var marker8 = new google.maps.Marker({position:myCenterAlb,});
+		   		marker8.setMap(map);
+		   		var marker9 = new google.maps.Marker({position:myCenterMexi,});
+		   		marker9.setMap(map);
+		   		var marker10 = new google.maps.Marker({position:myCenterNYC,});
+		   		marker10.setMap(map);
+		   		var marker11 = new google.maps.Marker({position:myCenterBost,});
+		   		marker11.setMap(map);
+		   		var marker12 = new google.maps.Marker({position:myCenterWDCH,});
+		   		marker12.setMap(map);
+		   		var marker13 = new google.maps.Marker({position:myCenterHoBo,});
+		   		marker13.setMap(map);
+		   		
+		   		var line = new google.maps.Polyline({
+		   		path:[myCenterHome, myCenterVienna, myCenterBonn, myCenterSalz, myCenterBayr, myCenterSydn, myCenterChina, myCenterRuss, myCenterAlb, myCenterMexi, myCenterNYC, myCenterBost, myCenterWDCH, myCenterHoBo],
+		   		strokeColor: "white",
+		   		strokeOpacity: 0.8,
+		   		strokeWeight: 2,
+		   		});
+		   		line.setMap(map);
+		  
+		  		//Home Map (to make a second map, just add more variables for
+		  		//               map properties, the map, and a second div in the html)
+		  		var homeMapProp = {
+				center:myCenterHome,
+				zoom:18,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var homeMarker = new google.maps.Marker({
+  				position:myCenterHome,
+  				});
+  				var homeMap= new google.maps.Map(document.getElementById("homeMap"),homeMapProp);
+  				homeMarker.setMap(homeMap)
+		  
+		 		//Vienna Map (to make a second map, just add more variables for
+		  		//               map properties, the map, and a second div in the html)
+		  		var viennaMapProp = {
+				center:myCenterVienna,
+				zoom:19,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var viennaMarker = new google.maps.Marker({
+  				position:myCenterVienna,
+  				});
+  				var viennaMap= new google.maps.Map(document.getElementById("viennaMap"),viennaMapProp);
+  				viennaMarker.setMap(viennaMap)
+  				
+  				//Bonn Map
+		  		var bonnMapProp = {
+				center:myCenterBonn,
+				zoom:20,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var bonnMarker = new google.maps.Marker({
+  				position:myCenterBonn,
+  				});
+  				var bonnMap= new google.maps.Map(document.getElementById("bonnMap"),bonnMapProp);
+  				bonnMarker.setMap(bonnMap);
+  				
+  				//Salzburg Map
+  				var salzMapProp = {
+				center:myCenterSalz,
+				zoom:20,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var salzMarker = new google.maps.Marker({
+  				position:myCenterSalz,
+  				});
+  				var salzMap= new google.maps.Map(document.getElementById("salzMap"),salzMapProp);
+  				salzMarker.setMap(salzMap);
+  				
+  				//Bayreuth Map
+  				var bayrMapProp = {
+				center:myCenterBayr,
+				zoom:19,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var bayrMarker = new google.maps.Marker({
+  				position:myCenterBayr,
+  				});
+  				var bayrMap= new google.maps.Map(document.getElementById("bayrMap"),bayrMapProp);
+  				bayrMarker.setMap(bayrMap);
+  				
+  				//Sydney Map
+  				var sydnMapProp = {
+				center:myCenterSydn,
+				zoom:18,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var sydnMarker = new google.maps.Marker({
+  				position:myCenterSydn,
+  				});
+  				var sydnMap= new google.maps.Map(document.getElementById("sydnMap"),sydnMapProp);
+  				sydnMarker.setMap(sydnMap);
+  				
+  				//China Map
+  				var chinaMapProp = {
+				center:myCenterChina,
+				zoom:17,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var chinaMarker = new google.maps.Marker({
+  				position:myCenterChina,
+  				});
+  				var chinaMap= new google.maps.Map(document.getElementById("chinaMap"),chinaMapProp);
+  				chinaMarker.setMap(chinaMap);
+  				
+  				//Russ Map
+  				var russMapProp = {
+				center:myCenterRuss,
+				zoom:18,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var russMarker = new google.maps.Marker({
+  				position:myCenterRuss,
+  				});
+  				var russMap= new google.maps.Map(document.getElementById("russMap"),russMapProp);
+  				russMarker.setMap(russMap);
+  				
+  				//Alb Map
+  				var albMapProp = {
+				center:myCenterAlb,
+				zoom:19,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var albMarker = new google.maps.Marker({
+  				position:myCenterAlb,
+  				});
+  				var albMap= new google.maps.Map(document.getElementById("albMap"),albMapProp);
+  				albMarker.setMap(albMap);
+  				
+  				//Mexi Map
+  				var mexiMapProp = {
+				center:myCenterMexi,
+				zoom:19,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var mexiMarker = new google.maps.Marker({
+  				position:myCenterMexi,
+  				});
+  				var mexiMap= new google.maps.Map(document.getElementById("mexiMap"),mexiMapProp);
+  				mexiMarker.setMap(mexiMap);
+  				
+  				//NYC Map
+  				var nycMapProp = {
+				center:myCenterNYC,
+				zoom:21,
+				mapTypeId:google.maps.MapTypeId.HYBRID,
+				tilt: 0,
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var nycMarker = new google.maps.Marker({
+  				position:myCenterNYC,
+  				});
+  				var nycMap= new google.maps.Map(document.getElementById("nycMap"),nycMapProp);
+  				nycMarker.setMap(nycMap);
+  				
+  				//Bost Map
+  				var bostMapProp = {
+				center:myCenterBost,
+				zoom:20,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var bostMarker = new google.maps.Marker({
+  				position:myCenterBost,
+  				});
+  				var bostMap= new google.maps.Map(document.getElementById("bostMap"),bostMapProp);
+  				bostMarker.setMap(bostMap);
+  				
+  				//WDCH Map
+  				var wdchMapProp = {
+				center:myCenterWDCH,
+				zoom:19,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var wdchMarker = new google.maps.Marker({
+  				position:myCenterWDCH,
+  				});
+  				var wdchMap= new google.maps.Map(document.getElementById("wdchMap"),wdchMapProp);
+  				wdchMarker.setMap(wdchMap);
+  				
+  				//HoBo Map
+  				var hoboMapProp = {
+				center:myCenterHoBo,
+				zoom:19,
+				mapTypeId:google.maps.MapTypeId.HYBRID
+		  		};
+		  		//make sure you use the second map properties, not the original one
+				var hoboMarker = new google.maps.Marker({
+  				position:myCenterHoBo,
+  				});
+  				var hoboMap= new google.maps.Map(document.getElementById("hoboMap"),hoboMapProp);
+  				hoboMarker.setMap(hoboMap);
+  		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
+	</head>
+
+	<body>
+		<h1 id="text">My Dream Vacation</h1>
+		<p id="text">If I could go on a vacation and not have to worry about financial and technical things, I would travel around the world to classical music heritage sites.</p>
+		
+		<h2 id="text">Here's where I'll be going:</h2>
+		<ol>
+		<li id="text">I'll start at home, traveling from South Pasadena High School.</li>
+		<li id="text">Then, I'll travel to Vienna, Austria to visit the Golden Concert Hall.</li>
+		<li id="text">Next, I'll visit Bonn, Germany to check out Beethoven's birthplace.</li>
+		<li id="text">After that, it's Salzburg, Austria for Mozart's birthplace.</li>
+		<li id="text">Then, I'll be stopping in Bayreuth, Germany to visit the Bayreuth Festspielhaus.</li>
+		<li id="text">Next stop will be the Sydney Opera House in Sydney, Australia.</li>
+		<li id="text">After, I'll travel to our stop in Asia for the National Centre for the Performing Arts in Beijing, China.</li>
+		<li id="text">Next I'll head north to Russia to visit the Bolshoi Theatre in Moscow.</li>
+		<li id="text">I'll then continue to London to visit Royal Albert Hall.</li>
+		<li id="text">I'll take a slight detour before heading back to the United States by visiting the Palacio de Bellas Artes in Mexico City, Mexico.</li>
+		<li id="text">Back in the US, I'll visit the iconic Carnegie Hall in New York City.</li>
+		<li id="text">Heading north a little, I'll stop at Boston Symphony Hall in Boston, Massachusetts.</li>
+		<li id="text">Finally, I'll be back home in LA to visit Walt Disney Concert Hall.</li>
+		<li id="text">As my final stop, I'll visit the iconic Hollywood Bowl in Hollywood.</li>
+		<li id="text">Scroll down to join me!</li>
+		</ol>
+		
+		<h3 id="text">World Map</h3>
+		<div id="googleMap" style="width:1000px;height:500px;"></div>
+		<p id="text">Follow my adventure on this world map.</p>
+		
+		<h2 id="text">Here we go!</h2>
+		<p id="text"> Scroll down to continue.</p>
+		
+		<h3 id="text">Start: South Pasadena High School</h3>
+		<div id="homeMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="SPHS.jpg" alt="SPHS" style="width:1000px;">
+		<p id="text">I will start from South Pasadena High School and travel to important classical music heritage sites around the world.</p>
+		
+		<h3 id="text">Stop 1: Vienna Golden Concert Hall (Gesellschaft der Musikfreunde in Wien)</h3>
+		<div id="viennaMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Vienna.jpg" alt="The Vienna Golden Concert Hall" style="width:1000px;">
+		<p id="text">Viena's famous Golden Concert Hall, location of the famous New Years' Day Concerts with the Vienna Philharmonic.</p>
+		
+		<h3 id="text">Stop 2: Beethoven's Bithplace in Bonn, Germany</h3>
+		<div id="bonnMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Bonn.jpg" alt="Beethoven's Birthplace" style="width:1000px;">
+		<p id="text">Beethoven's birthplace in Bonn, Germany, now the Beethoven House museum.</p>
+		
+		<h3 id="text">Stop 3: Mozart's Birthplace in Salzburg, Austria</h3>
+		<div id="salzMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Salz.jpg" alt="Mozart's Birthplace" style="width:1000px;">
+		<p id="text">Mozart's birthplace in Salzburg, Austria, now a museum.</p>
+		
+		<h3 id="text">Stop 4: The Bayreuth Festspielhaus in Bayreuth, Germany</h3>
+		<div id="bayrMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Bayr.jpg" alt="The Bayreuth Festspielhaus" style="width:1000px;">
+		<p id="text">The Bayreuth Festspielhaus in Bayreuth, Germany, constructed by Wagner from 1872-76 to host the performance of his now famous (or infamous...) Ring Cycle operas.</p>
+		
+		<h3 id="text">Stop 5: The Sydney Opera House in Sydney, Australia</h3>
+		<div id="sydnMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Sydn.jpg" alt="The Sydney Opera House" style="width:1000px;">
+		<p id="text">The Sydney Opera House in Sydney, Australia, one of the most iconic performing arts venues in the world.</p>
+		
+		<h3 id="text">Stop 6: The National Centre For The Performing Arts in Beijing, China</h3>
+		<div id="chinaMap" style="width:1000px;height:500px;"></div>
+		<p id="text">Please note at the time of creation, the map has a bug in it (the image and markers are not aligned).</p>
+		<br>
+		<img src="China.jpg" alt="The National Centre for the Performing Arts" style="width:1000px;">
+		<p id="text">The National Centre for the Performing Arts in Beijing, China is an opera house. It is described as a "bird's egg" and is made of titanium and glass surrounded by an artificial lake.</p>
+		
+		<h3 id="text">Stop 7: The Bolshoi Theatre in Moscow, Russia</h3>
+		<div id="russMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Russ.jpg" alt="Bolshoi Theatre" style="width:1000px;">
+		<p id="text">The Bolshoi Theatre in Moscow, home to one of the oldest opera companies in the world.</p>
+		
+		<h3 id="text">Stop 8: Royal Albert Hall in London, England</h3>
+		<div id="albMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Alb.jpg" alt="Royal Albert Hall" style="width:1000px;">
+		<p id="text">Royal Albert Hall in London, England, built by Queen Victoria and named for her late husband, Prince Albert.</p>
+		
+		<h3 id="text">Stop 9: Palacio de Bellas Artes in Mexico City, Mexico</h3>
+		<div id="mexiMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Mexi.jpg" alt="Palacio de Bellas Artes" style="width:1000px;">
+		<p id="text">Palacio de Bellas Artes in Mexico City, Mexico (Palace of Fine Arts) is the most important cultural site for Mexico City and the whole country of Mexico.</p>
+		
+		<h3 id="text">Stop 10: Carnegie Hall in New York City, NY, USA</h3>
+		<div id="nycMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="NYC.jpg" alt="Carnegie Hall" style="width:1000px;">
+		<p id="text">The iconic Carnegie Hall in New York City, built with funding by philanthropist Andrew Carnegie. It is one of the most iconic venues an artist can perform in.</p>
+		
+		<h3 id="text">Stop 11: Boston Symphony Hall in Boston, MA, USA</h3>
+		<div id="bostMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="Bost.jpg" alt="Boston Symphony Hall" style="width:1000px;">
+		<p id="text">The historic Boston Symphony Hall in Boston, known for its phenomenal organ, now a historic site.</p>
+		
+		<h3 id="text">Stop 12: Walt Disney Concert Hall in Los Angeles, CA, USA</h3>
+		<div id="wdchMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="WDCH.jpg" alt="Walt Disney Concert Hall" style="width:1000px;">
+		<p id="text">The famous Walt Disney Concert Hall in Los Angeles, known for its unique architecture and landmark acoustics. It is home to the Los Angeles Philharmonic and Los Angeles Master Chorale.</p>
+		
+		<h3 id="text">Stop 13: The Hollywood Bowl in Hollywood, CA, USA</h3>
+		<div id="hoboMap" style="width:1000px;height:500px;"></div>
+		<br>
+		<img src="HoBo.jpg" alt="Hollywood Bowl" style="width:1000px;">
+		<p id="text">The iconic Hollywood Bowl, the largest natural outdoor amphitheater in the United States. It serves as the summer home of the Los Angeles Philharmonic</p>
+		
+		<h2 id="text">Image Sources</h2>
+		<ol>
+		<li id="text">http://www.sphstigers.org/rotating_images/6770/6770_12_1000_0_0.jpg</li>
+		<li id="text">https://upload.wikimedia.org/wikipedia/commons/5/59/The_Wiener_Musikverein_(8336449001).jpg</li>
+		<li id="text">http://militaryingermany.com/wp-content/uploads/2016/04/Beethoven-Haus-1-Kelly-Bonn-Beethoven%E2%80%99s-Birthplace-16-1024x576.jpg</li>
+		<li id="text">http://www.salzburg.info/website/var/tmp/image-thumbnails/80000/82480/thumb__contentGalleryBig/mozarts-geburtshaus-mit-hagenauerplatz_260907.jpeg</li>
+		<li id="text">https://upload.wikimedia.org/wikipedia/commons/b/b1/Wagner-Festspielhaus_Bayreuth1995.jpg</li>
+		<li id="text">https://upload.wikimedia.org/wikipedia/commons/4/40/Sydney_Opera_House_Sails.jpg</li>
+		<li id="text">http://exhibitoo.com/static/i/m/620.jpg</li>
+		<li id="text">https://upload.wikimedia.org/wikipedia/commons/9/93/Royal_Albert_Hall,_London_-_Nov_2012.jpg</li>
+		<li id="text">https://upload.wikimedia.org/wikipedia/commons/8/8b/Moscow-Bolshoi-Theare-1.jpg</li>
+		<li id="text">https://upload.wikimedia.org/wikipedia/commons/b/b2/Palacio_de_Bellas_Artes.jpg</li>
+		<li id="text">http://www.nycgo.com/images/venues/2086/carnegie_hall_exterior__x_large.jpg</li>
+		<li id="text">https://upload.wikimedia.org/wikipedia/commons/9/97/Symphony_Hall,_Boston_MA.jpg</li>
+		<li id="text">http://www.musiccenter.org/Media/F_AboutUs/F1OurVenues/F1_1_Walt-Disney-Concert-Hall.jpg</li>
+		<li id="text">http://www.hollywoodbowl.com/sites/all/themes/maestro/css/img/hollywoodbowl.jpg</li>
+		</ol>
+	</body>
+
+</html>
+
+<!--http://twistedsifter.com/2012/05/25-incredible-concert-halls-around-the-world/-->
